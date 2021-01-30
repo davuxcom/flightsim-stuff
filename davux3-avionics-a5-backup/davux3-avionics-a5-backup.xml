@@ -1,0 +1,8 @@
+<Project Version="2" Name="davux3-avionics-a5-backup" FolderName="Packages">
+	<OutputDirectory>.</OutputDirectory>
+	<TemporaryOutputDirectory>_PackageInt</TemporaryOutputDirectory>
+	<Packages>
+		<Package>PackageDefinitions\davux3-avionics-a5-backup.xml</Package>
+	</Packages>
+</Project>
+
