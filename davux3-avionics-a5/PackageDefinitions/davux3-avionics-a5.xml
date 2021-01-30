@@ -1,0 +1,40 @@
+<AssetPackage Name="davux3-avionics-a5" Version="0.1.0">
+	<ItemSettings>
+		<ContentType>CUSTOM</ContentType>
+		<Title>davux3-avionics-a5</Title>
+		<Manufacturer>davux3</Manufacturer>
+		<Creator>davux3</Creator>
+		<Description/>
+	</ItemSettings>
+	<Flags>
+		<VisibleInStore>true</VisibleInStore>
+		<CanBeReferenced>true</CanBeReferenced>
+	</Flags>
+	<AssetGroups>
+		<AssetGroup Name="ContentInfo">
+			<Type>Copy</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageDefinitions\davux3-avionics-a5\ContentInfo\</AssetDir>
+			<OutputDir>ContentInfo\davux3-avionics-a5\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="MarketplaceData">
+			<Type>Copy</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageDefinitions\davux3-avionics-a5\MarketplaceData\</AssetDir>
+			<OutputDir>MarketplaceData\davux3-avionics-a5\</OutputDir>
+		</AssetGroup>
+		<AssetGroup Name="davux3-avionics-a5">
+			<Type>Copy</Type>
+			<Flags>
+				<FSXCompatibility>false</FSXCompatibility>
+			</Flags>
+			<AssetDir>PackageSources\</AssetDir>
+			<OutputDir>.\</OutputDir>
+		</AssetGroup>
+	</AssetGroups>
+</AssetPackage>
+
