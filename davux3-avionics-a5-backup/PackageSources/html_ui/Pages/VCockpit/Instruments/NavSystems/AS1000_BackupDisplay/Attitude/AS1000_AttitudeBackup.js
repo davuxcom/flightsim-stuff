@@ -2,7 +2,11 @@ class AS1000_AttitudeBackup extends NavSystem {
     get templateID() { return "AS1000_AttitudeBackup"; }
     connectedCallback() {
         super.connectedCallback();
+
         this.addIndependentElementContainer(new NavSystemElementContainer("Horizon", "Horizon", new Backup_Attitude()));
+        // davux3:edit
+        this.addIndependentElementContainer(new NavSystemElementContainer("Heading", "Heading", new Backup_Heading()));
+        // davux3:edit
     }
 }
 class Backup_Attitude extends NavSystemElement {
@@ -33,5 +37,6 @@ class Backup_Attitude extends NavSystemElement {
     onEvent(_event) {
     }
 }
+
 registerInstrument("as1000-attitudebackup-element", AS1000_AttitudeBackup);
 //# sourceMappingURL=AS1000_AttitudeBackup.js.map

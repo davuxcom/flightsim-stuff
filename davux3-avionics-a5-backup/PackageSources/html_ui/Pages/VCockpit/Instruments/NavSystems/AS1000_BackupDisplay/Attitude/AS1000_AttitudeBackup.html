@@ -4,11 +4,21 @@
             <glasscockpit-highlight id="Highlight" style="position:absolute; width: 100%; height:100%;"></glasscockpit-highlight>
             <glasscockpit-attitude-indicator id="Horizon"></glasscockpit-attitude-indicator>
         </div>
+        <!-- davux3:edit -->
+        <div id="Heading"><span id="value">HDG</span>°</div>
+        <!-- davux3:edit -->
     </div>
 </script>
 
 <link rel="stylesheet" href="AS1000_AttitudeBackup.css" />
-
+<!-- davux3:edit -->
+<link rel="stylesheet" href="AS1000_HeadingBackup.css" />
+<!--
+<script type="text/javascript" src="/JS/coherent.js"></script>
+<script type="text/javascript" src="/JS/common.js"></script>
+<script type="text/javascript" src="/JS/debug.js"></script>
+ -->
+ <!-- davux3:edit -->
 <script type="text/html" import-script="/JS/SimPlane.js"></script>
 
 <script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/Templates/Highlight/highlight.js"></script>
@@ -28,4 +38,7 @@
 
 <script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/NavSystem.js"></script>
 
-<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/AS1000_BackupDisplay/Attitude/AS1000_AttitudeBackup.js"></script>
+<!-- davux3:edit -->
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/AS1000_BackupDisplay/Attitude/AS1000_HeadingBackup.js"></script>
+<!-- davux3:edit -->
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/AS1000_BackupDisplay/Attitude/AS1000_AttitudeBackup.js?bust=6"></script>
