@@ -2582,15 +2582,30 @@ as3x-touch-element #MFD #MapMenu #range {
     as3x-touch-element #MFD #AFCS_Menu #GroupFour {
         top: 72%;
     }
-        as3x-touch-element #MFD #AFCS_Menu #AFCS_UP_Button{
-            left: 0%;
-            width: 25%;
-        }
-        as3x-touch-element #MFD #AFCS_Menu #AFCS_DN_Button{
-            right: 0%;
-            width: 25%;
-        }
-
+    as3x-touch-element #MFD #AFCS_Menu #AFCS_UP_Button{
+      left: 0%;
+      width: 15%;
+    }
+    as3x-touch-element #MFD #AFCS_Menu #AFCS_DN_Button{
+      left: 16%;
+      width: 15%;
+    }
+    as3x-touch-element #MFD #AFCS_Menu #AFCS_ALT_UP_Button{
+      left: 33%;
+      width: 15%;
+    }
+    as3x-touch-element #MFD #AFCS_Menu #AFCS_ALT_DN_Button{
+      left: 49%;
+      width: 15%;
+    }
+    as3x-touch-element #MFD #AFCS_Menu #AFCS_HDG_UP_Button{
+      left: 67%;
+      width: 15%;
+    }
+    as3x-touch-element #MFD #AFCS_Menu #AFCS_HDG_DN_Button{
+      left: 83%;
+      width: 15%;
+    }
 
     as3x-touch-element #MFD #AFCS_Menu .AFCS_Group:not(#GroupFour):after {
         content: "";

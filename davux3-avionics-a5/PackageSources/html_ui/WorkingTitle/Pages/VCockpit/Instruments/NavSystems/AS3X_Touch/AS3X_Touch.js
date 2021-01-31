@@ -947,6 +947,10 @@ class AS3X_Touch_AFCSMenu extends AS3X_Touch_Popup {
         this.VsButton = this.gps.getChildById("AFCS_VS_Button");
         this.UpButton = this.gps.getChildById("AFCS_UP_Button");
         this.DnButton = this.gps.getChildById("AFCS_DN_Button");
+        this.AltUpButton = this.gps.getChildById("AFCS_ALT_UP_Button");
+        this.AltDnButton = this.gps.getChildById("AFCS_ALT_DN_Button");
+        this.HdgUpButton = this.gps.getChildById("AFCS_HDG_UP_Button");
+        this.HdgDnButton = this.gps.getChildById("AFCS_HDG_DN_Button");
         this.gps.makeButton(this.MasterButton, () => {this.buttonToggle("K:AP_MASTER")});
         this.gps.makeButton(this.FdButton, () => {this.buttonToggle("K:TOGGLE_FLIGHT_DIRECTOR")});
         this.gps.makeButton(this.YdButton, () => {this.buttonToggle("K:YAW_DAMPER_TOGGLE")});
@@ -959,6 +963,10 @@ class AS3X_Touch_AFCSMenu extends AS3X_Touch_Popup {
         this.gps.makeButton(this.VsButton, () => {this.buttonToggle("K:AP_VS_HOLD")});
         this.gps.makeButton(this.UpButton, () => {this.buttonUpDn("UP")});
         this.gps.makeButton(this.DnButton, () => {this.buttonUpDn("DN")});
+        this.gps.makeButton(this.AltUpButton, () => {this.buttonUpDn("ALT_UP")});
+        this.gps.makeButton(this.AltDnButton, () => {this.buttonUpDn("ALT_DN")});
+        this.gps.makeButton(this.HdgUpButton, () => {this.buttonUpDn("HDG_UP")});
+        this.gps.makeButton(this.HdgDnButton, () => {this.buttonUpDn("HDG_DN")});
     }
     onUpdate() {
         this.MasterButton.setAttribute("state", (SimVar.GetSimVarValue("AUTOPILOT MASTER", "Bool") ? "Active" : ""));
@@ -976,16 +984,26 @@ class AS3X_Touch_AFCSMenu extends AS3X_Touch_Popup {
         SimVar.SetSimVarValue(simvar, "number", 0)
     }
     buttonUpDn(dir) {
-        if (SimVar.GetSimVarValue("A:AUTOPILOT VERTICAL HOLD", "bool")) {
-            var cmds = { "UP": "K:AP_VS_VAR_INC", "DN": "K:AP_VS_VAR_DEC" }
-        } else if (SimVar.GetSimVarValue("A:AUTOPILOT FLIGHT LEVEL CHANGE", "bool")) {
-            var cmds = { "UP": "K:AP_SPD_VAR_DEC", "DN": "K:AP_SPD_VAR_INC" }
-        } else if (SimVar.GetSimVarValue("A:AUTOPILOT PITCH HOLD", "bool")) {
-            var cmds = { "UP": "K:PITCH_REF_INC_UP", "DN": "K:PITCH_REF_INC_DN" }
+        if (dir === "ALT_UP" || dir === "ALT_DN") {
+            var cmds = { "ALT_UP" : "K:AP_ALT_VAR_INC", "ALT_DN": "K:AP_ALT_VAR_DEC"};
+        } else if (dir === "HDG_UP" || dir === "HDG_DN") {
+            var cmds = { "HDG_UP" : "K:HEADING_BUG_INC", "HDG_DN": "K:HEADING_BUG_DEC"};
         } else {
-            var cmds = {}
+            if (SimVar.GetSimVarValue("A:AUTOPILOT VERTICAL HOLD", "bool")) {
+                var cmds = { "UP": "K:AP_VS_VAR_INC", "DN": "K:AP_VS_VAR_DEC" }
+            } else if (SimVar.GetSimVarValue("A:AUTOPILOT FLIGHT LEVEL CHANGE", "bool")) {
+                var cmds = { "UP": "K:AP_SPD_VAR_DEC", "DN": "K:AP_SPD_VAR_INC" }
+            } else if (SimVar.GetSimVarValue("A:AUTOPILOT PITCH HOLD", "bool")) {
+                var cmds = { "UP": "K:PITCH_REF_INC_UP", "DN": "K:PITCH_REF_INC_DN" }
+            } else {
+                var cmds = {}
+            }
         }
-        if (dir in cmds) this.buttonToggle(cmds[dir]);
+
+        let count = dir === "HDG_UP" || dir === "HDG_DN" ? 5 : 1;
+        for (let i = 0; i < count; i++) {
+            if (dir in cmds) this.buttonToggle(cmds[dir]);
+        }
     }
 }
 class AS3X_Touch_PageMenu extends AS3X_Touch_Popup {
